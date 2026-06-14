@@ -65,19 +65,13 @@
     display:flex;
     align-items:center;
     gap:5px;
-    cursor:pointer;
     padding:5px 9px;
     border-radius:20px;
     border:1px solid rgba(255,255,255,0.08);
     background:rgba(255,255,255,0.03);
-    transition:opacity .15s ease;
   }
-  .topbar .sync-indicator:active{opacity:.6;}
   .sync-dot{width:7px; height:7px; border-radius:50%; background:var(--muted); flex-shrink:0;}
   .sync-dot.ok{background:var(--leaf);}
-  .sync-dot.err{background:var(--rust);}
-  .sync-dot.loading{background:var(--gold); animation:pulse 1s infinite ease-in-out;}
-  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.3;}}
 
   .hero{
     display:flex;
@@ -147,31 +141,6 @@
   .tab-header{margin-bottom:18px;}
   .tab-header h2{font-family:var(--font-display); font-size:24px; color:var(--gold); font-weight:800;}
   .tab-header p{font-size:13px; color:var(--muted); margin-top:6px; line-height:1.5;}
-
-  .source-banner{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:var(--radius);
-    padding:14px 16px;
-    margin-bottom:16px;
-    font-size:12.5px;
-    line-height:1.6;
-    color:var(--muted);
-  }
-  .source-banner b{color:var(--gold);}
-  .source-banner.err{border-color:rgba(193,80,46,0.35); color:#e3b3a3;}
-  .source-banner.err b{color:var(--rust);}
-  .source-banner .retry-btn{
-    margin-top:8px;
-    font-family:var(--font-mono);
-    font-size:11px;
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.18);
-    color:var(--text-light);
-    border-radius:8px;
-    padding:6px 12px;
-    cursor:pointer;
-  }
 
   .category{
     background:var(--paper);
@@ -338,16 +307,9 @@
   .badge-med{background:rgba(217,163,47,0.16); color:var(--gold-deep); border:1px solid rgba(217,163,47,0.35);}
   .badge-low{background:rgba(123,171,110,0.16); color:#3f6b38; border:1px solid rgba(123,171,110,0.4);}
 
-  .tag{font-family:var(--font-mono); font-size:10px; padding:4px 9px; border-radius:20px; font-weight:700; white-space:nowrap;}
-  .tag-builtin{background:rgba(123,171,110,0.16); color:#3f6b38; border:1px solid rgba(123,171,110,0.35);}
-  .tag-custom{background:rgba(193,80,46,0.14); color:var(--rust); border:1px solid rgba(193,80,46,0.3);}
-  .tag-sheet{background:rgba(242,193,78,0.18); color:var(--gold-deep); border:1px solid rgba(217,163,47,0.4);}
-
   .kernel-meter{display:grid; grid-template-columns:repeat(5,1fr); gap:4px; max-width:130px; margin:12px 0;}
   .kernel{height:18px; border-radius:9px / 11px; background:var(--paper-dim); border:1px solid #e3d6b8; transition:background .25s ease, border-color .25s ease;}
   .kernel.filled{background:var(--gold); border-color:var(--gold-deep);}
-
-  .match-score{font-family:var(--font-mono); font-size:13px; color:var(--gold-deep); margin-bottom:2px;}
 
   .matched-symptoms{font-size:13px; line-height:1.6; margin:10px 0; color:#3f4d3b;}
   .matched-symptoms b{color:var(--text-dark);}
@@ -362,59 +324,33 @@
 
   .field{margin-bottom:14px;}
   .field label{display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:var(--text-dark);}
-  .field input[type=text], .field input[type=url], .field textarea, .field select{
+  .field input[type=text], .field textarea{
     width:100%; border:2px solid var(--paper-dim); border-radius:10px;
     padding:10px 12px; font-family:var(--font-body); font-size:14px;
     background:#fff; color:var(--text-dark);
   }
-  .field input:focus, .field textarea:focus, .field select:focus{outline:none; border-color:var(--gold-deep);}
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--gold-deep);}
   .field textarea{min-height:90px; resize:vertical; font-family:var(--font-body);}
   .field-hint{font-size:12px; color:#7c8a78; margin-top:6px; line-height:1.5;}
   .field-msg{font-size:12.5px; color:var(--rust); margin-top:6px; font-weight:700; min-height:16px;}
   .field-msg.ok{color:#3f6b38;}
 
-  .mini-add{display:flex; gap:8px; margin-top:4px; flex-wrap:wrap;}
-  .mini-add select{flex:0 0 130px;}
-  .mini-add input{flex:1; min-width:140px;}
-  .mini-add button{flex-shrink:0;}
-
   .add-disease-form{display:none; background:var(--paper); color:var(--text-dark); border-radius:var(--radius); padding:18px; margin-bottom:16px;}
   .add-disease-form.show{display:block; animation:fadeUp .35s ease;}
   .add-disease-form h3{font-family:var(--font-display); font-size:18px; margin-bottom:14px;}
-  .mini-category{margin-bottom:10px;}
-  .mini-category .category-head{margin-bottom:6px; padding-bottom:6px;}
   .add-disease-form .btn-row{display:flex; gap:10px; margin-top:6px;}
   .add-disease-form .btn-row .btn{flex:1;}
-  .add-disease-form .btn-primary{background:var(--gold-deep); color:#fff;}
 
   .sheet-config-form{background:var(--paper); color:var(--text-dark); border-radius:var(--radius); padding:18px; margin-bottom:16px;}
   .sheet-config-form h3{font-family:var(--font-display); font-size:17px; margin-bottom:8px;}
   .sheet-config-form .steps{font-size:13px; line-height:1.7; color:#3f4d3b; margin-bottom:12px;}
   .sheet-config-form .steps b{color:var(--text-dark);}
-  .sheet-config-form code{
-    background:var(--paper-dim); border-radius:5px; padding:1px 6px;
-    font-family:var(--font-mono); font-size:11.5px; color:#8a5a3a;
-  }
-
-  .icon-btn{
-    background:none; border:1px solid #e3d6b8; border-radius:8px;
-    width:32px; height:32px; cursor:pointer; font-size:14px;
-    display:flex; align-items:center; justify-content:center;
-    color:#8a5a3a; flex-shrink:0; transition:all .15s ease;
-  }
-  .icon-btn.confirm{background:var(--rust); color:#fff; border-color:var(--rust);}
 
   .history-card{background:var(--paper); color:var(--text-dark); border-radius:var(--radius); padding:16px; margin-bottom:12px;}
   .history-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
   .history-date{font-family:var(--font-mono); font-size:11px; color:#7c8a78;}
   .history-main{font-weight:800; font-family:var(--font-display); font-size:16px; margin-top:4px;}
   .history-pct{font-family:var(--font-mono); font-size:13px; color:var(--gold-deep); margin-top:2px;}
-
-  .bar-row{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
-  .bar-label{font-size:12px; width:42%; flex-shrink:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-  .bar-track{flex:1; height:10px; background:var(--paper-dim); border-radius:6px; overflow:hidden;}
-  .bar-fill{height:100%; background:var(--gold-deep); border-radius:6px;}
-  .bar-count{font-family:var(--font-mono); font-size:11px; width:22px; text-align:right; flex-shrink:0;}
 
   .about-card{background:var(--paper); color:var(--text-dark); border-radius:var(--radius); padding:20px; margin-bottom:14px;}
   .about-card h3{font-family:var(--font-display); font-size:16px; margin-bottom:8px;}
@@ -464,9 +400,9 @@
     <div class="brand">SIJAGUR</div>
     <div class="brand-sub">Sistem Identifikasi Jagung</div>
   </div>
-  <div class="sync-indicator" id="syncIndicator" title="Status sinkronisasi data">
-    <span class="sync-dot" id="syncDot"></span>
-    <span id="syncLabel">Tersambung Sheets</span>
+  <div class="sync-indicator" id="syncIndicator" title="Status Mode">
+    <span class="sync-dot ok"></span>
+    <span>Lokal Offline</span>
   </div>
 </div>
 
@@ -513,7 +449,6 @@
       </div>
     </div>
 
-    <div class="source-banner" id="sourceBanner" style="display:none;"></div>
     <form id="gejalaForm"></form>
 
     <div class="diagnose-actions">
@@ -522,7 +457,6 @@
         <button class="btn btn-primary" id="diagnoseBtn" disabled>🔍 Diagnosa Sekarang</button>
         <button class="btn btn-ghost" id="resetBtn" type="button">Reset</button>
       </div>
-      <div class="field-msg" id="diagnoseStatusMsg" style="text-align:center; margin-top:8px;"></div>
     </div>
 
     <div class="results" id="resultsWrap">
@@ -535,40 +469,37 @@
   <section id="tab-riwayat" class="tab-view">
     <div class="tab-header">
       <h2>Riwayat Diagnosa</h2>
-      <p>Setiap kali kamu menekan "Diagnosa Sekarang", hasilnya otomatis tersimpan di sini sebagai catatan pengamatan lahan.</p>
+      <p>Setiap kali kamu menekan "Diagnosa Sekarang", hasilnya otomatis tersimpan di sini sebagai catatan pengamatan lapangan.</p>
     </div>
-    <div id="riwayatStats"></div>
     <div id="riwayatList"></div>
-    <button class="btn btn-ghost btn-block" id="clearRiwayatBtn" type="button" style="margin-top:6px;">Hapus Semua Riwayat</button>
+    <button class="btn btn-ghost btn-block confirm" id="clearRiwayatBtn" type="button" style="margin-top:6px;">Hapus Semua Riwayat</button>
   </section>
 
   <section id="tab-data" class="tab-view">
     <div class="tab-header">
       <h2>Data Penyakit & Gejala</h2>
-      <p>Basis data penyakit yang digunakan untuk diagnosa. Data sudah tersambung otomatis dari Google Sheets.</p>
+      <p>Basis data penyakit yang digunakan untuk diagnosa. Berjalan secara lokal tanpa internet.</p>
     </div>
 
     <div class="sheet-config-form">
-      <h3>📄 Sumber Data: Google Sheets (Otomatis Tersambung)</h3>
+      <h3>📄 Sumber Data: Lokal (Offline Mode)</h3>
       <div class="steps">
-        ✅ <b>Gejala:</b> Tersambung ke Google Sheets publik<br>
-        ✅ <b>Penyakit:</b> Tersambung ke Google Sheets publik<br>
-        ✅ <b>Riwayat Diagnosa:</b> Web App sudah aktif dan menerima data.
+        Data penyakit dan gejala dimuat dari penyimpanan bawaan sistem. Data yang kamu tambahkan akan tersimpan di penyimpanan lokal browser <i>(localStorage)</i> sehingga tetap aman meskipun halaman dimuat ulang.
       </div>
     </div>
 
-    <button class="btn btn-primary btn-block" id="toggleAddForm" type="button" style="margin-bottom:16px;">+ Tambah Data Penyakit Baru (lokal)</button>
+    <button class="btn btn-primary btn-block" id="toggleAddForm" type="button" style="margin-bottom:16px;">+ Tambah Data Penyakit Baru</button>
 
     <div class="add-disease-form" id="addDiseaseForm">
       <h3>🌽 Tambah Data Penyakit Baru</h3>
       <div class="field-hint" style="margin-bottom:10px;">Data yang ditambahkan di sini tersimpan lokal di perangkatmu saja.</div>
       <div class="field"><label>Nama Penyakit</label><input type="text" id="newDiseaseName" placeholder="Contoh: Penyakit Bercak Daun"></div>
       <div class="field"><label>Penyebab (opsional)</label><input type="text" id="newDiseaseCause" placeholder="Contoh: Jamur"></div>
-      <div class="field"><label>Gejala yang Teramati</label><div id="formGejalaWrap"></div></div>
+      <div class="field"><label>Pilih Gejala Terkait</label><div id="formGejalaWrap"></div></div>
       <div class="field"><label>Cara Penanganan</label><textarea id="newDiseaseTreatment" placeholder="Tulis satu langkah penanganan per baris"></textarea></div>
       <div class="field-msg" id="addDiseaseMsg"></div>
       <div class="btn-row">
-        <button class="btn btn-primary" id="saveDiseaseBtn" type="button">Simpan Data Penyakit</button>
+        <button class="btn btn-primary" id="saveDiseaseBtn" type="button" style="background:var(--gold-deep); color:#fff;">Simpan Data</button>
         <button class="btn btn-ghost" id="cancelDiseaseBtn" type="button" style="color:#23321f; border-color:#cdbfa0;">Batal</button>
       </div>
     </div>
@@ -583,11 +514,11 @@
     </div>
     <div class="about-card">
       <h3>Cara Kerja</h3>
-      <p>Pengguna memilih gejala yang terlihat pada daun, batang, tongkol, dan pertumbuhan tanaman. Sistem mencocokkan gejala dengan basis data penyakit dari Google Sheets, lalu menampilkan persentase kecocokan dan penanganan.</p>
+      <p>Pengguna memilih gejala yang terlihat pada daun, batang, tongkol, dan pertumbuhan tanaman. Sistem mencocokkan gejala dengan basis data penyakit, lalu menampilkan persentase kecocokan dan rekomendasi penanganan.</p>
     </div>
     <div class="about-card">
-      <h3>Sumber Data</h3>
-      <p>Data gejala dan penyakit diambil langsung dari Google Sheets yang dikelola dosen/petani. Riwayat diagnosa otomatis tersimpan ke spreadsheet terpusat secara real-time.</p>
+      <h3>Mode Offline</h3>
+      <p>Aplikasi ini telah disesuaikan agar dapat berjalan secara 100% offline tanpa menggunakan database eksternal. Semua penyimpanan memanfaatkan fitur <i>Local Storage</i> pada browsermu.</p>
     </div>
     <div class="about-card">
       <h3>Identitas Tugas</h3>
@@ -611,14 +542,8 @@
 
 <script>
   // ================================================================
-  // SIJAGUR dengan localStorage - Riwayat TIDAK HILANG saat refresh
+  // SIJAGUR dengan localStorage (Versi Offline - Tanpa Database Eksternal)
   // ================================================================
-
-  const SHEET_CONFIG = {
-    gejalaUrl: "https://docs.google.com/spreadsheets/d/1SUGqdjIgnVR7wY9GglqkgZKfBaZvgFfouWNrp2NF51E/export?format=csv&gid=1500937872",
-    penyakitUrl: "https://docs.google.com/spreadsheets/d/1ppoEfNGDfD1vEE5nDA6H53_GJseeGx274MHhBDfuQlk/export?format=csv&gid=523581376",
-    logUrl: "https://script.google.com/macros/s/AKfycbxVFvm9pjME6Q2BsUG5XxsDRedLTDh3XlrercDjMtY-kp5pQ2lCKmZE0TZ_w3aInFnf3g/exec"
-  };
 
   const kategoriInfo = {
     daun: { label: "Daun", icon: "🍃" },
@@ -660,378 +585,288 @@
     { id:"p7", nama:"Virus Mosaik Kerdil (Maize Dwarf Mosaic Virus)", penyebab:"Virus (kutu daun)", gejala:["g8","g18","g9"], penanganan:["Kendalikan kutu daun","Cabut tanaman terinfeksi","Benih bebas virus","Bersihkan gulma"] },
   ];
 
-  let customGejala = [], customPenyakit = [], riwayat = [];
-  let sheetGejala = null, sheetPenyakit = null;
-  const selected = new Set(), formGejalaSelected = new Set();
-
-  // ========== FUNGSI STORAGE DENGAN localStorage ==========
-  function saveToLocalStorage(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
-
+  // Fungsi Storage
+  function saveToLocalStorage(key, data) { localStorage.setItem(key, JSON.stringify(data)); }
   function loadFromLocalStorage(key, defaultValue) {
     const saved = localStorage.getItem(key);
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch(e) { return defaultValue; }
-    }
-    return defaultValue;
+    return saved ? JSON.parse(saved) : defaultValue;
   }
 
-  function getBaseGejala(){ return sheetGejala && sheetGejala.length ? sheetGejala : gejalaDataBuiltin; }
-  function getBasePenyakit(){ return sheetPenyakit && sheetPenyakit.length ? sheetPenyakit : penyakitDataBuiltin; }
-  function getAllGejala(){ return getBaseGejala().concat(customGejala); }
-  function getAllPenyakit(){ return getBasePenyakit().concat(customPenyakit); }
-  function findGejala(id){ return getAllGejala().find(g => g.id === id) || { text: id }; }
+  // State Aplikasi
+  let customPenyakit = loadFromLocalStorage('sijagur_penyakit', []);
+  let riwayat = loadFromLocalStorage('sijagur_riwayat', []);
+  const selected = new Set();
 
-  function parseCSV(text){
-    const rows = [];
-    let row = [], field = "", inQuotes = false;
-    for(let i=0; i<text.length; i++){
-      const c = text[i];
-      if(inQuotes){
-        if(c === '"'){ if(text[i+1] === '"'){ field += '"'; i++; } else { inQuotes = false; } }
-        else{ field += c; }
-      }else{
-        if(c === '"'){ inQuotes = true; }
-        else if(c === ','){ row.push(field); field = ""; }
-        else if(c === '\n' || c === '\r'){
-          if(c === '\r' && text[i+1] === '\n') i++;
-          row.push(field); field = "";
-          if(row.length > 1 || row[0] !== ""){ rows.push(row); }
-          row = [];
-        }else{ field += c; }
-      }
-    }
-    if(field !== "" || row.length){ row.push(field); rows.push(row); }
-    if(rows.length === 0) return [];
-    const header = rows[0].map(h => h.trim().toLowerCase());
-    return rows.slice(1).filter(r => r.some(c => c.trim() !== "")).map(r => {
-      const obj = {};
-      header.forEach((h, idx) => { obj[h] = (r[idx] || "").trim(); });
-      return obj;
+  function getAllGejala() { return gejalaDataBuiltin; } // Bisa ditambah custom gejala jika mau
+  function getAllPenyakit() { return [...penyakitDataBuiltin, ...customPenyakit]; }
+  function findGejala(id) { return getAllGejala().find(g => g.id === id) || { text: id }; }
+
+  // 1. Tab Navigasi
+  document.querySelectorAll('.tabbar button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tabbar button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
     });
-  }
+  });
 
-  async function fetchCSV(url){
-    const res = await fetch(url, { cache: "no-store" });
-    if(!res.ok) throw new Error("HTTP " + res.status);
-    return parseCSV(await res.text());
-  }
+  // 2. Render Form Gejala
+  function renderGejalaForm() {
+    const form = document.getElementById('gejalaForm');
+    const gejala = getAllGejala();
+    let html = '';
 
-  async function loadFromSheets(){
-    const dot = document.getElementById("syncDot");
-    const lbl = document.getElementById("syncLabel");
-    dot.className = "sync-dot loading";
-    lbl.textContent = "Memuat Sheets...";
+    Object.keys(kategoriInfo).forEach(cat => {
+      const catGejala = gejala.filter(g => g.kategori === cat);
+      if(catGejala.length === 0) return;
 
-    try{
-      if(SHEET_CONFIG.gejalaUrl){
-        const rows = await fetchCSV(SHEET_CONFIG.gejalaUrl);
-        const validKategori = Object.keys(kategoriInfo);
-        sheetGejala = rows.filter(r => r.id && r.text).map(r => ({
-          id: r.id,
-          kategori: validKategori.includes((r.kategori || "").toLowerCase()) ? r.kategori.toLowerCase() : "umum",
-          text: r.text
-        }));
-        if(sheetGejala.length) console.log("✅ Gejala loaded:", sheetGejala.length);
-      }
-    }catch(e){ console.warn("Gagal muat gejala:", e); sheetGejala = null; }
-
-    try{
-      if(SHEET_CONFIG.penyakitUrl){
-        const rows = await fetchCSV(SHEET_CONFIG.penyakitUrl);
-        sheetPenyakit = rows.filter(r => r.id && r.nama).map(r => ({
-          id: r.id,
-          nama: r.nama,
-          penyebab: r.penyebab || "Tidak diketahui",
-          gejala: (r.gejala || "").split(",").map(s => s.trim()).filter(Boolean),
-          penanganan: (r.penanganan || "").split(";").map(s => s.trim()).filter(Boolean)
-        })).filter(p => p.gejala.length > 0);
-        if(sheetPenyakit.length) console.log("✅ Penyakit loaded:", sheetPenyakit.length);
-      }
-    }catch(e){ console.warn("Gagal muat penyakit:", e); sheetPenyakit = null; }
-
-    dot.className = "sync-dot ok";
-    lbl.textContent = "Tersambung Sheets";
-    renderDiagnosaChecklist();
-    renderDataPenyakit();
+      html += `
+        <div class="category">
+          <div class="category-head">
+            <div class="icon">${kategoriInfo[cat].icon}</div>
+            <h2>Bagian ${kategoriInfo[cat].label}</h2>
+            <div class="count">${catGejala.length}</div>
+          </div>
+      `;
+      catGejala.forEach(g => {
+        html += `
+          <label class="gejala-item">
+            <input type="checkbox" value="${g.id}" onchange="toggleGejala('${g.id}', this.checked)">
+            <div class="checkbox"></div>
+            <div class="gejala-text">${g.text}</div>
+          </label>
+        `;
+      });
+      html += `</div>`;
+    });
+    form.innerHTML = html;
     updateStats();
   }
 
-  function buildChecklist(container, selectedSet){
-    container.innerHTML = "";
-    Object.keys(kategoriInfo).forEach(catKey => {
-      const items = getAllGejala().filter(g => g.kategori === catKey);
-      if(items.length === 0) return;
-      const section = document.createElement("div");
-      section.className = "category mini-category";
-      section.innerHTML = '<div class="category-head"><div class="icon">' + kategoriInfo[catKey].icon + '</div><h2>' + kategoriInfo[catKey].label + '</h2><span class="count">' + items.length + ' indikator</span></div><div class="items"></div>';
-      const itemsWrap = section.querySelector(".items");
-      items.forEach(g => {
-        const label = document.createElement("label");
-        label.className = "gejala-item";
-        const checked = selectedSet.has(g.id) ? "checked" : "";
-        label.innerHTML = '<input type="checkbox" data-id="' + g.id + '" ' + checked + '><span class="checkbox"></span><span class="gejala-text">' + g.text + '</span>';
-        itemsWrap.appendChild(label);
-      });
-      container.appendChild(section);
-    });
+  // 3. Logic Pilihan Gejala
+  window.toggleGejala = function(id, isChecked) {
+    if(isChecked) selected.add(id);
+    else selected.delete(id);
+    
+    document.getElementById('counterNum').textContent = selected.size;
+    document.getElementById('diagnoseBtn').disabled = selected.size === 0;
+  };
+
+  function updateStats() {
+    document.getElementById('statGejala').textContent = getAllGejala().length;
+    document.getElementById('statPenyakit').textContent = getAllPenyakit().length;
   }
 
-  function renderDiagnosaChecklist(){ buildChecklist(document.getElementById("gejalaForm"), selected); }
-  function renderFormGejalaChecklist(){ buildChecklist(document.getElementById("formGejalaWrap"), formGejalaSelected); }
-
-  function updateStats(){
-    document.getElementById("statGejala").textContent = String(getAllGejala().length).padStart(2,"0");
-    document.getElementById("statPenyakit").textContent = String(getAllPenyakit().length).padStart(2,"0");
-  }
-
-  function renderDataPenyakit(){
-    const list = document.getElementById("dataPenyakitList");
-    list.innerHTML = "";
-    getAllPenyakit().forEach(p => {
-      const isCustom = !!p.custom;
-      const gejalaText = p.gejala.map(id => '<li>' + findGejala(id).text + '</li>').join("");
-      const penangananText = p.penanganan.map(t => '<li>' + t + '</li>').join("");
-      const tagClass = isCustom ? "tag-custom" : (p.fromSheet ? "tag-sheet" : "tag-builtin");
-      const tagLabel = isCustom ? "Data Lokal" : (p.fromSheet ? "Google Sheets" : "Bawaan");
-      const card = document.createElement("div");
-      card.className = "disease-card";
-      card.innerHTML = '<div class="disease-card-top"><div><div class="disease-name">' + p.nama + '</div><div class="disease-cause">Penyebab: ' + p.penyebab + '</div></div><span class="tag ' + tagClass + '">' + tagLabel + '</span></div><div class="matched-symptoms"><b>Indikator gejala:</b><ul style="margin:6px 0 0 18px;">' + gejalaText + '</ul></div><details class="treatment"><summary>Cara Penanganan</summary><ul>' + penangananText + '</ul></details>' + (isCustom ? '<div style="margin-top:10px; text-align:right;"><button class="icon-btn" data-delete-disease="' + p.id + '" type="button">🗑</button></div>' : '');
-      list.appendChild(card);
-    });
-  }
-
-  function renderRiwayat(){
-    const statsWrap = document.getElementById("riwayatStats");
-    const listWrap = document.getElementById("riwayatList");
-    if(riwayat.length === 0){
-      statsWrap.innerHTML = "";
-      listWrap.innerHTML = '<div class="empty-state">Belum ada riwayat diagnosa. Lakukan diagnosa pertama di tab Diagnosa.</div>';
-      return;
-    }
-    const tally = {};
-    riwayat.forEach(r => { if(r.hasil.length > 0){ const top = r.hasil[0].nama; tally[top] = (tally[top] || 0) + 1; } });
-    const sortedTally = Object.entries(tally).sort((a,b) => b[1]-a[1]);
-    const maxCount = sortedTally.length ? sortedTally[0][1] : 1;
-    statsWrap.innerHTML = '<div class="stat-strip" style="grid-template-columns:repeat(2,1fr);"><div class="stat"><div class="num">' + riwayat.length + '</div><div class="label">Total diagnosa</div></div><div class="stat"><div class="num">' + sortedTally.length + '</div><div class="label">Jenis penyakit</div></div></div>' + (sortedTally.length ? '<div class="about-card"><h3>Penyakit Paling Sering Terdeteksi</h3>' + sortedTally.map(([nama,count]) => '<div class="bar-row"><div class="bar-label">' + nama + '</div><div class="bar-track"><div class="bar-fill" style="width:' + (count/maxCount*100) + '%"></div></div><div class="bar-count">' + count + '</div></div>').join("") + '</div>' : '');
-    listWrap.innerHTML = "";
-    riwayat.forEach(r => {
-      const date = new Date(r.timestamp).toLocaleString("id-ID", { dateStyle:"medium", timeStyle:"short" });
-      const top = r.hasil[0];
-      const gejalaText = r.gejalaIds.map(id => '<li>' + findGejala(id).text + '</li>').join("");
-      const card = document.createElement("div");
-      card.className = "history-card";
-      card.innerHTML = '<div class="history-top"><div><div class="history-date">' + date + (r.nama ? ' • ' + r.nama : '') + '</div><div class="history-main">' + (top ? top.nama : "Tidak ada kecocokan") + '</div>' + (top ? '<div class="history-pct">Kecocokan ' + Math.round(top.score*100) + '%</div>' : '') + '</div><button class="icon-btn" data-delete-history="' + r.id + '" type="button">🗑</button></div><details class="treatment" style="margin-top:10px;"><summary>Detail (' + r.gejalaIds.length + ' gejala dipilih)</summary><div class="matched-symptoms"><b>Gejala dipilih:</b><ul style="margin:6px 0 0 18px;">' + gejalaText + '</ul></div></details>';
-      listWrap.appendChild(card);
-    });
-  }
-
-  // Event Listeners
-  document.querySelectorAll(".tabbar button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const tab = btn.dataset.tab;
-      document.querySelectorAll(".tab-view").forEach(v => { v.classList.toggle("active", v.id === "tab-" + tab); });
-      document.querySelectorAll(".tabbar button").forEach(b => { b.classList.toggle("active", b === btn); });
-      if(tab === "riwayat") renderRiwayat();
-    });
-  });
-
-  document.getElementById("gejalaForm").addEventListener("change", e => {
-    if(e.target.tagName !== "INPUT") return;
-    if(e.target.checked) selected.add(e.target.dataset.id);
-    else selected.delete(e.target.dataset.id);
-    document.getElementById("counterNum").textContent = selected.size;
-    document.getElementById("diagnoseBtn").disabled = selected.size === 0;
-  });
-
-  document.getElementById("resetBtn").addEventListener("click", () => {
+  // 4. Reset & Diagnosa
+  document.getElementById('resetBtn').addEventListener('click', () => {
     selected.clear();
-    renderDiagnosaChecklist();
-    document.getElementById("counterNum").textContent = 0;
-    document.getElementById("diagnoseBtn").disabled = true;
-    document.getElementById("resultsWrap").classList.remove("show");
+    document.getElementById('gejalaForm').reset();
+    document.getElementById('counterNum').textContent = '0';
+    document.getElementById('diagnoseBtn').disabled = true;
+    document.getElementById('resultsWrap').classList.remove('show');
+    document.getElementById('namaPengamat').value = '';
   });
 
-  document.getElementById("diagnoseBtn").addEventListener("click", async () => {
-    const nama = document.getElementById("namaPengamat").value.trim();
-    if(!nama){ alert("Isi nama pengamat terlebih dahulu!"); return; }
-    
-    const scored = getAllPenyakit().map(p => ({ 
-      ...p, 
-      matched: p.gejala.filter(id => selected.has(id)), 
-      score: p.gejala.filter(id => selected.has(id)).length / p.gejala.length 
-    })).filter(p => p.score > 0).sort((a,b) => b.score - a.score).slice(0,3);
-    
-    const resultsBody = document.getElementById("resultsBody");
-    const resultsSub = document.getElementById("resultsSub");
-    
-    if(scored.length === 0){
-      resultsSub.textContent = "Berdasarkan " + selected.size + " gejala yang dipilih:";
-      resultsBody.innerHTML = '<div class="empty-state">🌱 Belum ditemukan kecocokan dengan penyakit dalam basis data.</div>';
-    }else{
-      resultsSub.textContent = "Berdasarkan " + selected.size + " gejala yang dipilih:";
-      resultsBody.innerHTML = "";
-      scored.forEach(p => {
-        const pct = Math.round(p.score * 100);
-        const filled = Math.round(p.score * 10);
-        const badgeClass = pct >= 70 ? "badge-high" : (pct >= 40 ? "badge-med" : "badge-low");
-        const badgeLabel = pct >= 70 ? "Kemungkinan Besar" : (pct >= 40 ? "Kemungkinan Sedang" : "Kemungkinan Rendah");
-        let kernels = "";
-        for(let i=0;i<10;i++) kernels += '<span class="kernel ' + (i < filled ? "filled" : "") + '"></span>';
-        const matchedText = p.matched.map(id => '<li>' + findGejala(id).text + '</li>').join("");
-        const treatmentList = p.penanganan.map(t => '<li>' + t + '</li>').join("");
-        resultsBody.innerHTML += '<div class="disease-card"><div class="disease-card-top"><div><div class="disease-name">' + p.nama + '</div><div class="disease-cause">Penyebab: ' + p.penyebab + '</div></div><span class="badge ' + badgeClass + '">' + badgeLabel + '</span></div><div class="match-score">Kecocokan gejala: ' + pct + '%</div><div class="kernel-meter">' + kernels + '</div><div class="matched-symptoms"><b>Gejala cocok:</b><ul style="margin:6px 0 0 18px;">' + matchedText + '</ul></div><details class="treatment"><summary>Cara Penanganan</summary><ul>' + treatmentList + '</ul></details></div>';
-      });
-    }
-    
-    document.getElementById("resultsWrap").classList.add("show");
-    
-    const entry = { 
-      id: "h-" + Date.now(), 
-      timestamp: Date.now(), 
-      nama: nama, 
-      gejalaIds: Array.from(selected), 
-      hasil: scored.map(h => ({ nama: h.nama, score: h.score })) 
-    };
-    
-    riwayat.unshift(entry);
-    if(riwayat.length > 50) riwayat = riwayat.slice(0,50);
-    saveToLocalStorage("sijagur_riwayat", riwayat);
-    saveToLocalStorage("sijagur_nama_terakhir", nama);
-    
-    // Kirim ke Google Sheets
-    if(SHEET_CONFIG.logUrl){
-      const statusMsg = document.getElementById("diagnoseStatusMsg");
-      statusMsg.style.color = "var(--muted)";
-      statusMsg.textContent = "Mengirim laporan ke database...";
-      try{
-        await fetch(SHEET_CONFIG.logUrl, { 
-          method: "POST", 
-          mode: "no-cors", 
-          headers: { "Content-Type": "text/plain;charset=utf-8" }, 
-          body: JSON.stringify({ 
-            waktu: new Date(entry.timestamp).toLocaleString("id-ID", { dateStyle:"medium", timeStyle:"short" }), 
-            nama: nama, 
-            gejala: entry.gejalaIds.map(id => findGejala(id).text).join(" | "), 
-            hasil: entry.hasil.map(h => h.nama + " (" + Math.round(h.score*100) + "%)").join(" | "), 
-            jumlahGejala: entry.gejalaIds.length 
-          }) 
-        });
-        statusMsg.style.color = "#7bab6e";
-        statusMsg.textContent = "✓ Laporan tersimpan & terkirim ke database terpusat.";
-      }catch(e){ 
-        statusMsg.style.color = "var(--rust)"; 
-        statusMsg.textContent = "Laporan tersimpan lokal, gagal terkirim ke database."; 
+  document.getElementById('diagnoseBtn').addEventListener('click', () => {
+    const penyakit = getAllPenyakit();
+    const results = [];
+
+    penyakit.forEach(p => {
+      const matched = p.gejala.filter(g => selected.has(g));
+      if(matched.length > 0) {
+        // Hitung persentase kecocokan
+        const score = Math.round((matched.length / p.gejala.length) * 100);
+        results.push({ ...p, score, matched });
       }
-      setTimeout(() => { statusMsg.textContent = ""; }, 5000);
-    }
-  });
-
-  document.getElementById("toggleAddForm").addEventListener("click", () => {
-    const form = document.getElementById("addDiseaseForm");
-    form.classList.toggle("show");
-    if(form.classList.contains("show")){ renderFormGejalaChecklist(); document.getElementById("toggleAddForm").textContent = "− Tutup Form"; }
-    else{ document.getElementById("toggleAddForm").textContent = "+ Tambah Data Penyakit Baru (lokal)"; }
-  });
-  
-  document.getElementById("cancelDiseaseBtn").addEventListener("click", () => {
-    document.getElementById("addDiseaseForm").classList.remove("show");
-    document.getElementById("toggleAddForm").textContent = "+ Tambah Data Penyakit Baru (lokal)";
-  });
-  
-  document.getElementById("saveDiseaseBtn").addEventListener("click", async () => {
-    const nama = document.getElementById("newDiseaseName").value.trim();
-    const penyebab = document.getElementById("newDiseaseCause").value.trim() || "Catatan petani";
-    const penanganan = document.getElementById("newDiseaseTreatment").value.split("\n").map(s => s.trim()).filter(Boolean);
-    if(!nama || formGejalaSelected.size === 0 || penanganan.length === 0){ alert("Lengkapi semua field"); return; }
-    
-    customPenyakit.push({ 
-      id: "pc-" + Date.now(), 
-      nama: nama, 
-      penyebab: penyebab, 
-      gejala: Array.from(formGejalaSelected), 
-      penanganan: penanganan, 
-      custom: true 
     });
-    
-    saveToLocalStorage("sijagur_custom_penyakit", customPenyakit);
-    
-    formGejalaSelected.clear();
-    document.getElementById("newDiseaseName").value = "";
-    document.getElementById("newDiseaseCause").value = "";
-    document.getElementById("newDiseaseTreatment").value = "";
-    document.getElementById("addDiseaseForm").classList.remove("show");
-    document.getElementById("toggleAddForm").textContent = "+ Tambah Data Penyakit Baru (lokal)";
-    renderDataPenyakit();
-    updateStats();
-  });
 
-  document.getElementById("dataPenyakitList").addEventListener("click", async e => {
-    const btn = e.target.closest("[data-delete-disease]");
-    if(!btn) return;
-    if(!btn.classList.contains("confirm")){
-      btn.classList.add("confirm");
-      btn.textContent = "✓";
-      setTimeout(() => { btn.classList.remove("confirm"); btn.textContent = "🗑"; }, 2500);
-      return;
-    }
-    customPenyakit = customPenyakit.filter(p => p.id !== btn.dataset.deleteDisease);
-    saveToLocalStorage("sijagur_custom_penyakit", customPenyakit);
-    renderDataPenyakit();
-    updateStats();
-  });
+    results.sort((a, b) => b.score - a.score);
+    renderResults(results);
 
-  document.getElementById("riwayatList").addEventListener("click", async e => {
-    const btn = e.target.closest("[data-delete-history]");
-    if(!btn) return;
-    if(!btn.classList.contains("confirm")){
-      btn.classList.add("confirm");
-      btn.textContent = "✓";
-      setTimeout(() => { btn.classList.remove("confirm"); btn.textContent = "🗑"; }, 2500);
-      return;
-    }
-    riwayat = riwayat.filter(r => r.id !== btn.dataset.deleteHistory);
-    saveToLocalStorage("sijagur_riwayat", riwayat);
+    // Simpan ke riwayat
+    const nama = document.getElementById('namaPengamat').value || "Petani Anonim";
+    const topResult = results.length > 0 ? results[0].nama : "Tidak Terdeteksi";
+    const topScore = results.length > 0 ? results[0].score : 0;
+
+    riwayat.unshift({
+      date: new Date().toLocaleString('id-ID'),
+      nama: nama,
+      hasil: topResult,
+      skor: topScore
+    });
+    saveToLocalStorage('sijagur_riwayat', riwayat);
     renderRiwayat();
   });
 
-  document.getElementById("clearRiwayatBtn").addEventListener("click", async () => {
-    const btn = document.getElementById("clearRiwayatBtn");
-    if(!btn.classList.contains("confirm")){
-      btn.classList.add("confirm");
-      btn.textContent = "Klik lagi untuk menghapus semua riwayat";
-      setTimeout(() => { btn.classList.remove("confirm"); btn.textContent = "Hapus Semua Riwayat"; }, 2500);
-      return;
-    }
-    riwayat = [];
-    saveToLocalStorage("sijagur_riwayat", riwayat);
-    btn.classList.remove("confirm");
-    btn.textContent = "Hapus Semua Riwayat";
-    renderRiwayat();
-  });
+  function renderResults(results) {
+    const wrap = document.getElementById('resultsWrap');
+    const body = document.getElementById('resultsBody');
+    const sub = document.getElementById('resultsSub');
 
-  // ========== INITIALIZATION ==========
-  async function init() {
-    // Load data dari localStorage
-    customGejala = loadFromLocalStorage("sijagur_custom_gejala", []);
-    customPenyakit = loadFromLocalStorage("sijagur_custom_penyakit", []);
-    riwayat = loadFromLocalStorage("sijagur_riwayat", []);
-    
-    const namaTerakhir = loadFromLocalStorage("sijagur_nama_terakhir", "");
-    if(namaTerakhir) document.getElementById("namaPengamat").value = namaTerakhir;
-    
-    console.log(`✅ Loaded: ${riwayat.length} riwayat, ${customPenyakit.length} penyakit lokal`);
-    
-    await loadFromSheets();
-    renderDiagnosaChecklist();
-    renderDataPenyakit();
-    updateStats();
+    if(results.length === 0) {
+      sub.textContent = "Tidak ditemukan penyakit yang sesuai.";
+      body.innerHTML = `<div class="empty-state">Silakan periksa kembali gejala yang dipilih.</div>`;
+    } else {
+      sub.textContent = `Ditemukan ${results.length} kemungkinan penyakit.`;
+      let html = '';
+      results.forEach(r => {
+        let badge = r.score >= 70 ? 'badge-high' : r.score >= 40 ? 'badge-med' : 'badge-low';
+        let kernels = Math.round(r.score / 20);
+        let kernelHtml = '';
+        for(let i=0; i<5; i++) kernelHtml += `<div class="kernel ${i < kernels ? 'filled' : ''}"></div>`;
+
+        let matchedHtml = r.matched.map(id => `- ${findGejala(id).text}`).join('<br>');
+        let treatHtml = r.penanganan.map(t => `<li>${t}</li>`).join('');
+
+        html += `
+          <div class="disease-card">
+            <div class="disease-card-top">
+              <div>
+                <div class="disease-name">${r.nama}</div>
+                <div class="disease-cause">${r.penyebab}</div>
+              </div>
+              <div class="badge ${badge}">${r.score}% Cocok</div>
+            </div>
+            <div class="kernel-meter">${kernelHtml}</div>
+            <details class="treatment" open>
+              <summary>Gejala Cocok (${r.matched.length}/${r.gejala.length})</summary>
+              <div class="matched-symptoms">${matchedHtml}</div>
+            </details>
+            <details class="treatment">
+              <summary>Rekomendasi Penanganan</summary>
+              <ul>${treatHtml}</ul>
+            </details>
+          </div>
+        `;
+      });
+      body.innerHTML = html;
+    }
+    wrap.classList.add('show');
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  
-  init();
+
+  // 5. Riwayat Tab
+  function renderRiwayat() {
+    const list = document.getElementById('riwayatList');
+    if(riwayat.length === 0) {
+      list.innerHTML = `<div class="empty-state">Belum ada riwayat diagnosa tersimpan.</div>`;
+      return;
+    }
+    let html = '';
+    riwayat.forEach(r => {
+      html += `
+        <div class="history-card">
+          <div class="history-top">
+            <div>
+              <div class="history-date">${r.date} — ${r.nama}</div>
+              <div class="history-main">${r.hasil}</div>
+            </div>
+            <div class="history-pct">${r.skor}%</div>
+          </div>
+        </div>
+      `;
+    });
+    list.innerHTML = html;
+  }
+
+  document.getElementById('clearRiwayatBtn').addEventListener('click', () => {
+    if(confirm('Hapus semua catatan riwayat secara permanen?')) {
+      riwayat = [];
+      saveToLocalStorage('sijagur_riwayat', riwayat);
+      renderRiwayat();
+    }
+  });
+
+  // 6. Data Penyakit Tab
+  function renderDataPenyakit() {
+    const list = document.getElementById('dataPenyakitList');
+    const all = getAllPenyakit();
+    let html = '';
+    all.forEach(p => {
+      html += `
+        <div class="disease-card" style="padding:14px;">
+          <div class="disease-name" style="font-size:16px;">${p.nama}</div>
+          <div class="disease-cause">${p.penyebab}</div>
+          <div style="margin-top:8px; font-size:12px; color:#6b7a66;">
+            <b>Total Gejala Terkait:</b> ${p.gejala.length} parameter <br>
+            <b>Langkah Penanganan:</b> ${p.penanganan.length} langkah
+          </div>
+        </div>
+      `;
+    });
+    list.innerHTML = html;
+  }
+
+  // Render Checkbox Gejala di Form Tambah Penyakit
+  function renderAddFormGejala() {
+     const wrap = document.getElementById('formGejalaWrap');
+     const gejala = getAllGejala();
+     let html = '<div style="max-height:160px; overflow-y:auto; border:2px solid var(--paper-dim); border-radius:10px; padding:10px; background:#fff;">';
+     gejala.forEach(g => {
+       html += `
+         <label style="display:flex; gap:8px; margin-bottom:8px; align-items:start; font-size:13px;">
+           <input type="checkbox" value="${g.id}" class="add-gejala-checkbox">
+           <span>${g.text}</span>
+         </label>
+       `;
+     });
+     html += '</div>';
+     wrap.innerHTML = html;
+  }
+
+  document.getElementById('toggleAddForm').addEventListener('click', () => {
+    document.getElementById('addDiseaseForm').classList.toggle('show');
+  });
+
+  document.getElementById('cancelDiseaseBtn').addEventListener('click', () => {
+    document.getElementById('addDiseaseForm').classList.remove('show');
+  });
+
+  document.getElementById('saveDiseaseBtn').addEventListener('click', () => {
+    const nama = document.getElementById('newDiseaseName').value.trim();
+    const penyebab = document.getElementById('newDiseaseCause').value.trim() || "Tidak diketahui";
+    const penangananRaw = document.getElementById('newDiseaseTreatment').value;
+    const penanganan = penangananRaw.split('\n').map(s=>s.trim()).filter(Boolean);
+    
+    const checkboxes = document.querySelectorAll('.add-gejala-checkbox:checked');
+    const gejalaPilihan = Array.from(checkboxes).map(c => c.value);
+
+    const msg = document.getElementById('addDiseaseMsg');
+    
+    if(!nama || gejalaPilihan.length === 0 || penanganan.length === 0) {
+      msg.textContent = "Nama penyakit, minimal 1 gejala, dan 1 penanganan wajib diisi!";
+      msg.className = 'field-msg';
+      return;
+    }
+
+    const newId = 'custom_' + Date.now();
+    customPenyakit.push({ id: newId, nama, penyebab, gejala: gejalaPilihan, penanganan });
+    saveToLocalStorage('sijagur_penyakit', customPenyakit);
+
+    msg.textContent = "Data penyakit berhasil disimpan lokal!";
+    msg.className = 'field-msg ok';
+
+    setTimeout(() => {
+      document.getElementById('addDiseaseForm').classList.remove('show');
+      document.getElementById('newDiseaseName').value = '';
+      document.getElementById('newDiseaseCause').value = '';
+      document.getElementById('newDiseaseTreatment').value = '';
+      msg.textContent = '';
+      renderAddFormGejala(); 
+      renderDataPenyakit();
+      updateStats();
+    }, 1500);
+  });
+
+  // 7. Inisialisasi Pertama Kali
+  window.onload = () => {
+    renderGejalaForm();
+    renderRiwayat();
+    renderDataPenyakit();
+    renderAddFormGejala();
+  };
 </script>
+
 </body>
 </html>
